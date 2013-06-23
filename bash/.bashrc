@@ -9,11 +9,6 @@ if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh  ]; then
   . `brew --prefix`/etc/bash_completion.d/git-prompt.sh 
 fi
 
-# GRC - Generic Colouriser for adding color to various programs
-#if [ -f `brew --prefix grc`/etc/grc.bashrc ]; then
-#  . `brew --prefix grc`/etc/grc.bashrc 	
-#fi
-
 # Show git branch in status line
 export PS1='[\w]$(__git_ps1 " (%s)")\$ '
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
