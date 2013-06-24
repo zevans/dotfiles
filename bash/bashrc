@@ -1,21 +1,16 @@
-# This file is currently sourced from .bash_profile
+# This file is sourced from .bash_profile
 
-# Git tab completion
-if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash  ]; then
-  . `brew --prefix`/etc/bash_completion.d/git-completion.bash 
-fi
+# Tab completion scripts
+source ~/dotfiles/bash/bash_completion.d/git-completion.bash
+source ~/dotfiles/bash/bash_completion.d/git-prompt.sh 
+source ~/dotfiles/bash/bash_completion.d/tmux
 
-if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh  ]; then
-  . `brew --prefix`/etc/bash_completion.d/git-prompt.sh 
-fi
+# Set up aliases
+source ~/dotfiles/bash/bash_aliases
 
 # Show git branch in status line
 export PS1='[\w]$(__git_ps1 " (%s)")\$ '
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
-## Aliases ##
-# Source the .bash_aliases file if it exists
-if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
-
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Add rvm to PATH for scripting support
+PATH=$PATH:$HOME/.rvm/bin
