@@ -12,3 +12,4 @@
 - `ln -sf ~/dotfiles/bash/bash_aliases ~/.bash_aliases`
 - `ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf`
 - `ln -sf ~/dotfiles/git/gitconfig ~/.gitconfig`
+- `ln -sf ~/dotfiles/vim/vimrc ~/.vimrc`
