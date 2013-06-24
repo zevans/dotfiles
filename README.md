@@ -2,8 +2,8 @@
 
 ## install
 
-- `git clone git://github.com/holman/dotfiles ~/.dotfiles`
-- `cd ~/.dotfiles`
+- `git clone git://github.com/zevans/dotfiles ~/dotfiles`
+- `cd ~/dotfiles`
 - `rake install`
 
 ## symlink dotfiles into place
