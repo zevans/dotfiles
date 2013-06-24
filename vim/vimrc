@@ -1,0 +1,61 @@
+set nocompatible
+filetype off
+
+"Use Vundle for managing vim plugins
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"Let Vundle manage Vundle (required!)
+Bundle 'gmarik/vundle'
+   
+"Original repos on github
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-rails.git'
+
+" vim-scripts repos
+"Bundle 'L9'
+"Bundle 'FuzzyFinder'
+
+" non github repos
+"Bundle 'git://git.wincent.com/command-t.git'
+
+" Vundle Commands help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused  bundles
+" see :h vundle for more details or wiki for FAQ
+
+filetype plugin indent on "required per vundle installation!
+
+"Text formatting options - " from holman/.dotfiles
+set autoindent             " automatic indent new lines
+set smartindent            " be smart about it
+set nowrap                 " do not wrap lines
+set softtabstop=4          " yep, two
+set shiftwidth=2           " ..
+set tabstop=4
+set expandtab              " expand tabs to spaces
+set nosmarttab             " fuck tabs
+
+"color settings
+syntax on
+set t_Co=256
+set background=dark
+colorscheme desert
+
+set showcmd
+set number
+set nowrap
+set ruler
+
+" keyboard mappings
+map <C-n> :NERDTreeToggle<CR>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+"let mapleader = ","
+set timeout timeoutlen=500
