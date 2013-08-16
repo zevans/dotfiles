@@ -1,4 +1,5 @@
 bash/git_identity
 vim/dotvim/bundle
+vim/dotvim/.netrwhist
 *.swp
 *.DS_Store
