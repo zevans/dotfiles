@@ -4,13 +4,8 @@
 
 - `git clone git://github.com/zevans/dotfiles ~/dotfiles`
 - `cd ~/dotfiles`
-- `rake install`
+- `git submodule init`
+- `git submodule update`
+- `sh make_symlinks.sh`
+- `:BundleInstall` from Vim
 
-## symlink dotfiles into place
-- `ln -sf ~/dotfiles/bash/bashrc ~/.bashrc`
-- `ln -sf ~/dotfiles/bash/bash_profile ~/.bash_profile`
-- `ln -sf ~/dotfiles/bash/bash_aliases ~/.bash_aliases`
-- `ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf`
-- `ln -sf ~/dotfiles/git/gitconfig ~/.gitconfig`
-- `ln -sf ~/dotfiles/vim/vimrc ~/.vimrc`
-- `ln -sf ~/dotfiles/vim/dotvim ~/.vim`
