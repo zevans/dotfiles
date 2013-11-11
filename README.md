@@ -6,6 +6,6 @@
 - `cd ~/dotfiles`
 - `git submodule init`
 - `git submodule update`
-- `sh make_symlinks.sh`
+- `bash make_symlinks.sh`
 - `:BundleInstall` from Vim
 
