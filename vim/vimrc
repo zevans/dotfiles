@@ -1,8 +1,15 @@
 ".vimrc
 "
-" Use :so (:source) % - reload this file
-"
-"
+"==============================================================================
+" Make it easy to edit and reload Vim settings
+"==============================================================================
+
+augroup reload_vimrc " {
+  autocmd!
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
+
+
 "==============================================================================
 " Use Vim settings instead of vi settings
 "==============================================================================
@@ -22,6 +29,8 @@ call vundle#rc()                " Enable Vundle
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'noah/vim256-color'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'bling/vim-airline'
 
 filetype plugin indent on       " (Re)enable filetype and indenting 
 
@@ -29,9 +38,9 @@ filetype plugin indent on       " (Re)enable filetype and indenting
 "==============================================================================
 " Basic Options
 "==============================================================================
-
 set encoding=utf-8
 set timeout timeoutlen=500
+
 
 "==============================================================================
 " Text, Tab, and Indent Options
@@ -39,12 +48,23 @@ set timeout timeoutlen=500
 set autoindent             " automatic indent new lines
 set smartindent            " be smart about it
 set nowrap                 " do not wrap lines
-set softtabstop=4          " yep, two
-set shiftwidth=2           " ..
+set softtabstop=4
+set shiftwidth=2
 set tabstop=4
 set expandtab              " expand tabs to spaces
 set nosmarttab             " fuck tabs
 set backspace=indent,eol,start
+
+
+"==============================================================================
+" Searching Options
+"==============================================================================
+
+set hlsearch               " highlight matches
+set incsearch              " incremental searching
+set ignorecase             " searches are case insensitive
+set smartcase              " ..unless it contains >= 1 capital letter
+
 
 "==============================================================================
 " Appearance Options
@@ -66,4 +86,16 @@ colorscheme desert256
 let mapleader = ","
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-"map <C-n> :NERDTreeToggle<CR>
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+"Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+  
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+
+" Easier navigation between split windows
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
