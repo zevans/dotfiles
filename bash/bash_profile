@@ -4,6 +4,7 @@ if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 # Setup the PATH Environment variable
 export PATH=/usr/local/bin:/usr/bin:/usr/local/packer:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Developer/usr/bin/:$PATH
 
+# Setup ruby version manager
 if [ -e /usr/local/bin/rbenv ]
 then
   echo "rbenv installed!" &&
