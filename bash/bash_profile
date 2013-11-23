@@ -4,11 +4,12 @@ if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 # Setup the PATH Environment variable
 export PATH=/usr/local/bin:/usr/bin:/usr/local/packer:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Developer/usr/bin/:$PATH
 
-if [ which rbenv > /dev/null]
+if [ -e /usr/local/bin/rbenv ]
 then
+  echo "rbenv installed!" &&
   eval "$(rbenv init -)"
 else
-  # RVM configurations added per installation instructions
-  export CC=gcc-4.2 
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+  echo "rvm must be installed" &&
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" && export CC=gcc-4.2
 fi
+
