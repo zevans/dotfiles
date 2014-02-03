@@ -30,7 +30,8 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'noah/vim256-color'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'bling/vim-airline'
+"Bundle 'bling/vim-airline'
+Bundle 'rking/ag.vim'
 
 filetype plugin indent on       " (Re)enable filetype and indenting 
 

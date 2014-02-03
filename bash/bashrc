@@ -8,6 +8,9 @@ source ~/dotfiles/bash/bash_completion.d/tmux
 # Set up aliases
 source ~/dotfiles/bash/bash_aliases
 
+# Set up bashmarks for easy directory navigation
+source ~/.local/bin/bashmarks.sh
+
 # Show git branch in status line
 export PS1='[\w]$(__git_ps1 " (%s)")\$ '
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
