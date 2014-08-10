@@ -4,8 +4,7 @@ if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 # Setup the PATH Environment variable
 export PATH=/usr/local/bin:/usr/bin:/usr/local/packer:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Developer/usr/bin/:$PATH
 
-if [ which rbenv > /dev/null]
-then
+if [ command -v rbenv >/dev/null 2>&1 ];then
   eval "$(rbenv init -)"
 else
   # RVM configurations added per installation instructions
