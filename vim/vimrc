@@ -1,5 +1,4 @@
-".vimrc
-"
+
 "==============================================================================
 " Make it easy to edit and reload Vim settings
 "==============================================================================
@@ -28,6 +27,7 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'noah/vim256-color'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'vim-ruby/vim-ruby'
 "Bundle 'bling/vim-airline'
 Bundle 'rking/ag.vim'
 Bundle 'thoughtbot/vim-rspec'
@@ -87,6 +87,8 @@ let mapleader = ","
 " set up ctrlp mappings
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
 
 " leader v to open vimrc in a new tab
 nmap <leader>v :tabedit $MYVIMRC<CR>
@@ -108,6 +110,9 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" Easy un-highlight after searching
+nnoremap <esc> :noh<return><esc>
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
