@@ -97,6 +97,9 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 
+" leader b to quick switch buffers
+nnoremap <leader>b :ls<CR>:b<space>
+
 " leader v to open vimrc in a new tab
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
