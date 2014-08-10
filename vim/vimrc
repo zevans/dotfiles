@@ -56,7 +56,6 @@ set backspace=indent,eol,start
 "==============================================================================
 " Searching Options
 "==============================================================================
-
 set hlsearch               " highlight matches
 set incsearch              " incremental searching
 set ignorecase             " searches are case insensitive
@@ -91,6 +90,9 @@ let g:ctrlp_cmd = 'CtrlP'
 
 " leader v to open vimrc in a new tab
 nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" map \ to starting search with ag/the_silver_searcher  
+noremap \ :Ag<SPACE>
 
 " leader cd to switch to dir of current file
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
