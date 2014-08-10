@@ -1,5 +1,4 @@
-".vimrc
-"
+
 "==============================================================================
 " Make it easy to edit and reload Vim settings
 "==============================================================================
@@ -9,13 +8,11 @@ augroup reload_vimrc " {
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
 
-
 "==============================================================================
 " Use Vim settings instead of vi settings
 "==============================================================================
 
 set nocompatible
-
 
 "==============================================================================
 " Setup Vundle and Plugins      :BundleInstall to refresh, :h vundle for help
@@ -32,16 +29,16 @@ Bundle 'noah/vim256-color'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-ruby/vim-ruby'
 "Bundle 'bling/vim-airline'
+Bundle 'rking/ag.vim'
+Bundle 'thoughtbot/vim-rspec'
 
 filetype plugin indent on       " (Re)enable filetype and indenting 
-
 
 "==============================================================================
 " Basic Options
 "==============================================================================
 set encoding=utf-8
 set timeout timeoutlen=500
-
 
 "==============================================================================
 " Text, Tab, and Indent Options
@@ -56,7 +53,6 @@ set expandtab              " expand tabs to spaces
 set nosmarttab             " fuck tabs
 set backspace=indent,eol,start
 
-
 "==============================================================================
 " Searching Options
 "==============================================================================
@@ -65,7 +61,6 @@ set hlsearch               " highlight matches
 set incsearch              " incremental searching
 set ignorecase             " searches are case insensitive
 set smartcase              " ..unless it contains >= 1 capital letter
-
 
 "==============================================================================
 " Appearance Options
@@ -76,24 +71,33 @@ set number
 set nowrap
 set ruler
 
-set t_Co=256
 set background=dark
-colorscheme blacklight
-"colorscheme desert256
-"colorscheme molokai
+if has("gui_running")
+  colorscheme molokai
+else
+  set t_Co=256
+  colorscheme desert256
+endif
 
 
 "==============================================================================
 " Key Mappings
 "==============================================================================
 let mapleader = ","
+
+" set up ctrlp mappings
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
+
+" leader v to open vimrc in a new tab
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
-"Shortcut to rapidly toggle `set list`
+" leader cd to switch to dir of current file
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+" Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
   
 " Use the same symbols as TextMate for tabstops and EOLs
@@ -107,3 +111,10 @@ nnoremap <c-l> <c-w>l
 
 " Easy un-highlight after searching
 nnoremap <esc> :noh<return><esc>
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+let g:rspec_command = ":!ssh dev 'source ~/.bash_profile && cd /var/logikcull/apps/backend_synced && rspec {spec}'"
