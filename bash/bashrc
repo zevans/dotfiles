@@ -10,7 +10,7 @@ source ~/dotfiles/bash/bash_completion.d/cap-completion.bash
 source ~/dotfiles/bash/bash_aliases
 
 # Set up bashmarks for easy directory navigation
-source ~/.local/bin/bashmarks.sh
+# source ~/.local/bin/bashmarks.sh
 
 # Show git branch in status line
 export PS1='[\h: \w]$(__git_ps1 " (%s)")\$ '
