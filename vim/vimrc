@@ -53,6 +53,13 @@ set expandtab              " expand tabs to spaces
 set nosmarttab             " fuck tabs
 set backspace=indent,eol,start
 
+
+"==============================================================================
+" Layout Options
+"------------------------------------------------------------------------------
+set splitbelow                  " open splits below rather than above
+set splitright                  " open splits right rather than left
+
 "==============================================================================
 " Searching Options
 "==============================================================================
