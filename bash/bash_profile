@@ -2,15 +2,15 @@
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 
 # Setup the PATH Environment variable
-export PATH=/usr/local/bin:/usr/bin:/usr/local/packer:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Developer/usr/bin/:$PATH
+export PATH=/usr/local/bin:/usr/bin:/usr/local/packer:/usr/local/terraform:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Developer/usr/bin/:$PATH
 
 # Setup ruby version manager
 if [ -e /usr/local/bin/rbenv ]
 then
-  echo "rbenv installed!" &&
+  #echo "rbenv installed!" &&
   eval "$(rbenv init -)"
 else
-  echo "rvm must be installed" &&
+  #echo "rvm must be installed" &&
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" && export CC=gcc-4.2
 fi
 

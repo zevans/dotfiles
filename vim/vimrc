@@ -1,4 +1,3 @@
-
 "==============================================================================
 " Make it easy to edit and reload Vim settings
 "==============================================================================
@@ -23,14 +22,12 @@ filetype off                    " Disable for Vundle loading
 set rtp+=~/.vim/bundle/vundle/  " Add Vundle subdir to run time path
 call vundle#rc()                " Enable Vundle
 
-Bundle 'gmarik/vundle'
+Bundle 'VundleVim/Vundle.vim'
 Bundle 'kien/ctrlp.vim'
+"Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'noah/vim256-color'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-ruby/vim-ruby'
-"Bundle 'bling/vim-airline'
 Bundle 'rking/ag.vim'
-Bundle 'thoughtbot/vim-rspec'
 
 filetype plugin indent on       " (Re)enable filetype and indenting 
 
@@ -56,7 +53,7 @@ set backspace=indent,eol,start
 
 "==============================================================================
 " Layout Options
-"------------------------------------------------------------------------------
+"==============================================================================
 set splitbelow                  " open splits below rather than above
 set splitright                  " open splits right rather than left
 
@@ -79,7 +76,7 @@ set ruler
 
 set background=dark
 if has("gui_running")
-  colorscheme molokai
+  colorscheme solarized
 else
   set t_Co=256
   colorscheme desert256
@@ -91,42 +88,37 @@ endif
 "==============================================================================
 let mapleader = ","
 
-" set up ctrlp mappings
+"Set up ctrlP mappings
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 
-" leader b to quick switch buffers
+"Leader b to quick switch buffers
 nnoremap <leader>b :ls<CR>:b<space>
 
-" leader v to open vimrc in a new tab
+"Leader v to open vimrc in a new tab
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
-" map \ to starting search with ag/the_silver_searcher  
+"Map \ to starting search with ag/the_silver_searcher
+let g:agprg="/usr/local/bin/ag --vimgrep"
 noremap \ :Ag<SPACE>
 
-" leader cd to switch to dir of current file
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+"Leader cd to switch to dir of current file
+"nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
-" Shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR>
+"Shortcut to rapidly toggle `set list`
+nmap <leader>s :set list!<CR>
   
-" Use the same symbols as TextMate for tabstops and EOLs
+"Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
-" Easier navigation between split windows
+"Easier navigation between split windows
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" Easy un-highlight after searching
-nnoremap <esc> :noh<return><esc>
-
-" RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = ":!ssh dev 'source ~/.bash_profile && cd /var/logikcull/apps/backend_synced && rspec {spec}'"
+" Control l/h for switching tabs
+nnoremap <c-l> gt
+nnoremap <c-h> gT

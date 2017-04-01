@@ -1,6 +1,26 @@
-# This file is sourced from .bashrc and contains all bash aliases
+#This file is sourced from .bashrc and contains all bash aliases
 
+# General purposes aliases
+alias aliases="vim ~/.bash_aliases"
+alias ll="ls -lah"
+
+# Bash function for making a directory and going there immediately
+mcd () {
+  mkdir -p $1
+  cd $1
+}
+
+# Copy id_rsa.pub public key contents to clipboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
-alias prod_back="ssh lcub-str0001"
-alias prod_front="ssh lcub-fe0001"
-#alias vimopen="vim $(git status | grep modified | awk '{print $3}')"
+
+# Vagrant shortcuts
+alias lcv="cd ~/logikcull/vagrant"
+alias vs="vagrant status"
+alias vr="vagrant reload"
+alias dev="ssh devbox"
+
+# Logikcull shortcuts
+alias be="cd ~/backend"
+alias fe="cd ~/frontend"
+alias dp="cd ~/deploy"
+
