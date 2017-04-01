@@ -1,7 +1,6 @@
 "==============================================================================
 " Make it easy to edit and reload Vim settings
 "==============================================================================
-
 augroup reload_vimrc " {
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
@@ -10,26 +9,22 @@ augroup END " }
 "==============================================================================
 " Use Vim settings instead of vi settings
 "==============================================================================
-
 set nocompatible
 
 "==============================================================================
-" Setup Vundle and Plugins      :BundleInstall to refresh, :h vundle for help
+" Vim-Plug setup
 "==============================================================================
+call plug#begin('~/.vim/plugged')
 
-filetype on                     " Enable first for git exit code
-filetype off                    " Disable for Vundle loading
-set rtp+=~/.vim/bundle/vundle/  " Add Vundle subdir to run time path
-call vundle#rc()                " Enable Vundle
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'easymotion/vim-easymotion'
+Plug 'ayu-theme/ayu-vim'
 
-Bundle 'VundleVim/Vundle.vim'
-Bundle 'kien/ctrlp.vim'
-"Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'noah/vim256-color'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'rking/ag.vim'
+call plug#end()
 
-filetype plugin indent on       " (Re)enable filetype and indenting 
 
 "==============================================================================
 " Basic Options
@@ -74,13 +69,19 @@ set number
 set nowrap
 set ruler
 
-set background=dark
-if has("gui_running")
-  colorscheme solarized
-else
-  set t_Co=256
-  colorscheme desert256
-endif
+set termguicolors     " enable true colors support
+"let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
+
+"set background=dark
+"if has("gui_running")
+"  colorscheme solarized
+"else
+"  set t_Co=256
+"  colorscheme desert256
+"endif
 
 
 "==============================================================================
@@ -104,8 +105,12 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 let g:agprg="/usr/local/bin/ag --vimgrep"
 noremap \ :Ag<SPACE>
 
+" NERDTree keys
+map <C-n> :NERDTreeToggle<CR>
+map <leader>r :NERDTreeFind<cr>
+
 "Leader cd to switch to dir of current file
-"nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+"nnoremap ,cd kcd %:p:h<CR>:pwd<CR>
 
 "Shortcut to rapidly toggle `set list`
 nmap <leader>s :set list!<CR>
