@@ -7,5 +7,5 @@
 - `git submodule init`
 - `git submodule update`
 - `bash make_symlinks.sh`
-- `:BundleInstall` from Vim
+- `:PlugInstall` from Vim
 
