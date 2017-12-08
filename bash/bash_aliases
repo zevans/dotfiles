@@ -14,13 +14,10 @@ mcd () {
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # Vagrant shortcuts
-alias lcv="cd ~/logikcull/vagrant"
 alias vs="vagrant status"
 alias vr="vagrant reload"
-alias dev="ssh devbox"
 
 # Logikcull shortcuts
-alias be="cd ~/backend"
-alias fe="cd ~/frontend"
-alias dp="cd ~/deploy"
-
+alias lab="cd ~/logikcull/apps/backend"
+alias laf="cd ~/logikcull/apps/frontend"
+alias lid="cd ~/logikcull/infra/deploy"
